@@ -1,28 +1,31 @@
 class Vehicle{
-
-    constructor(type, make, model, year, milage){
+    constructor(type, make, model, year, mileage = 0){
         this.type = type;
         this.make = make;
         this.model = model;
         this.year = year;
-        this.milage = milage;
+        this.mileage = mileage;
     }
 
     drive(distance){
-        this.milage += distance;
+        this.mileage += distance;
     }
 
     getDetails(){
-        console.log(`This is vehicle is ${this.type}`);
-        console.log(`You have a ${this.year} ${this.make} ${this.model}`);
-        console.log(`Current Milage: ${this.milage}\n`);
+        return `This ${this.year} ${this.make} ${this.model} ${this.type} has ${this.mileage} miles.`;
     }
 }
 
 
-car = new Vehicle("sedan", "honda", "accord", "2021", 10000)
-car.getDetails()
+let car = new Vehicle("car", "Honda", "Civic", 2023, 2000);
+let truck = new Vehicle("truck", "Ford", "F-150", 2000, 12000);
+let motorcycle = new Vehicle("motorcycle", "Harley", "Cruiser", 2013);
 
-car.drive(3000)
+car.drive(1000);
+truck.drive(4000);
+motorcycle.drive(800);
 
-car.getDetails()
+
+console.log(car.getDetails());
+console.log(truck.getDetails());
+console.log(motorcycle.getDetails());
